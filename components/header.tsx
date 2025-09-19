@@ -52,7 +52,8 @@ export function Header() {
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <ChefHat className="h-8 w-8 text-primary" />
-              <div className="flex flex-col">
+              {/* Desktop/Tablet: brand name + subtitle */}
+              <div className="hidden md:flex flex-col">
                 <span className="text-xl font-bold text-foreground">
                   Authentic Restaurant
                 </span>

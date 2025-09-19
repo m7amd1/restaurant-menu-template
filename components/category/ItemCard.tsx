@@ -40,11 +40,11 @@ export function ItemCard({
         />
         {/* Hover dark overlay */}
         <div
-          className="pointer-events-none absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="pointer-events-none absolute inset-0 bg-black/40 opacity-40 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
           aria-hidden="true"
         />
         {/* Center hover CTA */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
           <Button
             onClick={() => onViewDetails(item)}
             variant="secondary"

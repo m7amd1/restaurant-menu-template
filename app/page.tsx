@@ -25,7 +25,7 @@ export default function HomePage() {
         <section className="relative w-full h-[calc(100vh-65px)] overflow-hidden">
           {/* Background image */}
           <Image
-            src="/mixed-arabic-grilled-meat-barbecue-platter.jpg"
+            src="https://images.unsplash.com/photo-1504718855392-c0f33b372e72?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjF8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D"
             alt="Delicious Middle Eastern dishes on a dark rustic background"
             fill
             priority
