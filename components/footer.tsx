@@ -70,7 +70,7 @@ export function Footer() {
                 <p className="text-sm text-muted-foreground">
                   123 Jerusalem Street
                   <br />
-                  Tel Aviv, Israel 12345
+                  Palestine.
                 </p>
               </div>
               <div className="flex items-center space-x-3">
