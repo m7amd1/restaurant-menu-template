@@ -38,8 +38,8 @@ export function CartDrawer() {
                 )}
               </SheetTitle>
               <Button
-                variant="destructive"
-                className="cursor-pointer"
+                variant="ghost"
+                className="cursor-pointer hover:text-white hover:bg-red-600"
                 size="icon"
                 onClick={closeCart}
               >
@@ -145,7 +145,7 @@ export function CartDrawer() {
                   <span>{formatPrice(state.total)}</span>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 flex justify-between flex-col">
                   <Link href="/checkout" onClick={closeCart}>
                     <Button className="w-full dark:text-white" size="lg">
                       Continue to Checkout

@@ -24,7 +24,7 @@ export function ItemCard({
 }: ItemCardProps) {
   const [imageError, setImageError] = useState(false);
   return (
-    <div className="group overflow-hidden rounded-2xl border bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="group overflow-hidden rounded-2xl border bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 flex justify-between flex-col">
       {/* Image area */}
       <div className="relative rounded-t-2xl overflow-hidden h-48">
         <Image

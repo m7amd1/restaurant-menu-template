@@ -143,7 +143,7 @@ export function MenuCategories() {
           {categories.map((category) => (
             <Link key={category.id} href={`/category/${category.id}`}>
               <Card
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-black/5 bg-transparent shadow-md hover:shadow-lg transition-all duration-300"
+                className="group relative cursor-pointer py-0 overflow-hidden rounded-3xl border border-black/5 bg-transparent shadow-md hover:shadow-lg transition-all duration-300"
                 onMouseEnter={() => setHoveredCard(category.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >

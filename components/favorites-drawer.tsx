@@ -71,8 +71,8 @@ export function FavoritesDrawer() {
                 )}
               </SheetTitle>
               <Button
-                variant="destructive"
-                className="cursor-pointer"
+                        variant="ghost"
+                className="cursor-pointer hover:text-white hover:bg-red-600"
                 size="icon"
                 onClick={() => setIsOpen(false)}
               >
