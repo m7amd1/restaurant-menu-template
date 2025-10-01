@@ -104,7 +104,19 @@ export function ItemCard({
         <div className="flex items-start justify-between">
           <div className="space-y-1">
             <h3 className="text-lg font-semibold text-card-foreground">
-              {item.name}
+              {item.name === "بيتزا خضار"
+                ? "Vegetable Pizza"
+                : item.name === "شاي"
+                ? "Tea"
+                : item.name === "قهوة"
+                ? "Coffee"
+                : item.name === "عصير رمان"
+                ? "Pomegranate Juice"
+                : item.name === "عصير جزر"
+                ? "Carrot Juice"
+                : item.name === "بيتزا مخصوص"
+                ? "Special Pizza"
+                : item.name}
             </h3>
             <p className="text-sm text-muted-foreground line-clamp-2 text-pretty">
               {item.description}

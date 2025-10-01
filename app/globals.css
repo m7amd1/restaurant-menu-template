@@ -123,5 +123,7 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    width: 100%; /* Ensure body takes full width */
   }
 }

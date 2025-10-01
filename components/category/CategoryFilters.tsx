@@ -18,7 +18,7 @@ export function CategoryFilters({
   total,
 }: CategoryFiltersProps) {
   const isAll = selected.length === 1 && selected[0] === "all";
-  const pills = ["all", ...subcategories];
+  const pills = ["all", ...subcategories.filter((sub) => sub !== "all")];
   return (
     <div className="mb-8">
       <div className="flex items-center justify-between mb-3">

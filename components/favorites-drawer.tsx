@@ -128,7 +128,19 @@ export function FavoritesDrawer() {
                         <div className="flex items-start justify-between">
                           <div>
                             <h4 className="font-medium text-sm leading-tight">
-                              {item.name}
+                              {item.name === "بيتزا خضار"
+                                ? "Vegetable Pizza"
+                                : item.name === "شاي"
+                                ? "Tea"
+                                : item.name === "قهوة"
+                                ? "Coffee"
+                                : item.name === "عصير رمان"
+                                ? "Pomegranate Juice"
+                                : item.name === "عصير جزر"
+                                ? "Carrot Juice"
+                                : item.name === "بيتزا مخصوص"
+                                ? "Special Pizza"
+                                : item.name}
                             </h4>
                             <p className="text-xs text-muted-foreground">
                               {item.category}

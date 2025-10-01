@@ -53,7 +53,21 @@ export function ItemDetailsDialog({
         {item && (
           <div className="space-y-4">
             <DialogHeader>
-              <DialogTitle className="text-xl">{item.name}</DialogTitle>
+              <DialogTitle className="text-xl">
+                {item.name === "عصير جزر"
+                  ? "Carrot Juice"
+                  : item.name === "بيتزا خضار"
+                  ? "Vegetable Pizza"
+                  : item.name === "شاي"
+                  ? "Tea"
+                  : item.name === "قهوة"
+                  ? "Coffee"
+                  : item.name === "عصير رمان"
+                  ? "Pomegranate Juice"
+                  : item.name === "بيتزا مخصوص"
+                  ? "Special Pizza"
+                  : item.name}
+              </DialogTitle>
               <DialogDescription>
                 View detailed information about this menu item including
                 description, ingredients, and pricing.
@@ -94,15 +108,18 @@ export function ItemDetailsDialog({
                   (128 reviews)
                 </span>
               </div>
-              <div className="absolute top-3 right-3">
-                <Badge className="bg-emerald-600 text-white">Vegetarian</Badge>
-              </div>
             </div>
 
             {/* Category label and price */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 flex-wrap">
-                <Badge variant="secondary">{categoryName}</Badge>
+                <Badge variant="secondary">
+                  {categoryName === "مشروبات"
+                    ? "Drinks"
+                    : categoryName === "بيتزا"
+                    ? "Pizza"
+                    : categoryName}
+                </Badge>
               </div>
               <span className="text-lg font-semibold">₪{item.price}</span>
             </div>

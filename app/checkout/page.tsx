@@ -1,53 +1,68 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useCart } from "@/contexts/cart-context"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Separator } from "@/components/ui/separator"
-import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, CreditCard, Truck, Clock, MapPin, User } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useState } from "react";
+import { useCart } from "@/contexts/cart-context";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import {
+  ArrowLeft,
+  CreditCard,
+  Truck,
+  Clock,
+  MapPin,
+  User,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function CheckoutPage() {
-  const { state, clearCart } = useCart()
-  const router = useRouter()
-  const [deliveryMethod, setDeliveryMethod] = useState("delivery")
-  const [paymentMethod, setPaymentMethod] = useState("card")
-  const [isProcessing, setIsProcessing] = useState(false)
+  const { state, clearCart } = useCart();
+  const router = useRouter();
+  const [deliveryMethod, setDeliveryMethod] = useState("delivery");
+  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const formatPrice = (price: number) => {
-    return `₪${price.toFixed(2)}`
-  }
+    return `₪${price.toFixed(2)}`;
+  };
 
-  const deliveryFee = deliveryMethod === "delivery" ? 15 : 0
-  const serviceFee = 5
-  const totalWithFees = state.total + deliveryFee + serviceFee
+  const deliveryFee = deliveryMethod === "delivery" ? 15 : 0;
+  const serviceFee = 5;
+  const totalWithFees = state.total + deliveryFee + serviceFee;
 
   const handleSubmitOrder = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsProcessing(true)
+    e.preventDefault();
+    setIsProcessing(true);
 
     // Simulate order processing
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    clearCart()
-    setIsProcessing(false)
+    clearCart();
+    setIsProcessing(false);
 
     // Redirect to success page or show success message
-    alert("Order placed successfully! You will receive a confirmation email shortly.")
-    router.push("/")
-  }
+    alert(
+      "Order placed successfully! You will receive a confirmation email shortly."
+    );
+    router.push("/");
+  };
 
   if (state.items.length === 0) {
     return (
@@ -56,7 +71,9 @@ export default function CheckoutPage() {
         <main className="container mx-auto px-4 py-8">
           <div className="max-w-2xl mx-auto text-center">
             <h1 className="text-2xl font-bold mb-4">Your cart is empty</h1>
-            <p className="text-muted-foreground mb-6">Add some delicious items to your cart before checking out.</p>
+            <p className="text-muted-foreground mb-6">
+              Add some delicious items to your cart before checking out.
+            </p>
             <Link href="/menu">
               <Button className="cursor-pointer dark:text-white">
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -67,7 +84,7 @@ export default function CheckoutPage() {
         </main>
         <Footer />
       </div>
-    )
+    );
   }
 
   return (
@@ -96,14 +113,22 @@ export default function CheckoutPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <RadioGroup value={deliveryMethod} onValueChange={setDeliveryMethod}>
+                  <RadioGroup
+                    value={deliveryMethod}
+                    onValueChange={setDeliveryMethod}
+                  >
                     <div className="flex items-center space-x-2 p-4 border rounded-lg">
                       <RadioGroupItem value="delivery" id="delivery" />
-                      <Label htmlFor="delivery" className="flex-1 cursor-pointer">
+                      <Label
+                        htmlFor="delivery"
+                        className="flex-1 cursor-pointer"
+                      >
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Home Delivery</p>
-                            <p className="text-sm text-muted-foreground">30-45 minutes</p>
+                            <p className="text-sm text-muted-foreground">
+                              30-45 minutes
+                            </p>
                           </div>
                           <Badge variant="secondary">₪15</Badge>
                         </div>
@@ -115,7 +140,9 @@ export default function CheckoutPage() {
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Pickup</p>
-                            <p className="text-sm text-muted-foreground">15-20 minutes</p>
+                            <p className="text-sm text-muted-foreground">
+                              15-20 minutes
+                            </p>
                           </div>
                           <Badge variant="secondary">Free</Badge>
                         </div>
@@ -146,11 +173,21 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="john@example.com" required />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      required
+                    />
                   </div>
                   <div>
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="+972 50 123 4567" required />
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="+972 50 123 4567"
+                      required
+                    />
                   </div>
                 </CardContent>
               </Card>
@@ -167,7 +204,11 @@ export default function CheckoutPage() {
                   <CardContent className="space-y-4">
                     <div>
                       <Label htmlFor="address">Street Address</Label>
-                      <Input id="address" placeholder="123 Main Street" required />
+                      <Input
+                        id="address"
+                        placeholder="123 Main Street"
+                        required
+                      />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
@@ -180,8 +221,13 @@ export default function CheckoutPage() {
                       </div>
                     </div>
                     <div>
-                      <Label htmlFor="instructions">Delivery Instructions (Optional)</Label>
-                      <Textarea id="instructions" placeholder="Apartment number, building entrance, etc." />
+                      <Label htmlFor="instructions">
+                        Delivery Instructions (Optional)
+                      </Label>
+                      <Textarea
+                        id="instructions"
+                        placeholder="Apartment number, building entrance, etc."
+                      />
                     </div>
                   </CardContent>
                 </Card>
@@ -196,19 +242,31 @@ export default function CheckoutPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
+                  <RadioGroup
+                    value={paymentMethod}
+                    onValueChange={setPaymentMethod}
+                  >
                     <div className="flex items-center space-x-2 p-4 border rounded-lg">
                       <RadioGroupItem value="card" id="card" />
                       <Label htmlFor="card" className="flex-1 cursor-pointer">
                         <p className="font-medium">Credit/Debit Card</p>
-                        <p className="text-sm text-muted-foreground">Visa, Mastercard, American Express</p>
+                        <p className="text-sm text-muted-foreground">
+                          Visa, Mastercard, American Express
+                        </p>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 p-4 border rounded-lg">
                       <RadioGroupItem value="cash" id="cash" />
                       <Label htmlFor="cash" className="flex-1 cursor-pointer">
-                        <p className="font-medium">Cash on {deliveryMethod === "delivery" ? "Delivery" : "Pickup"}</p>
-                        <p className="text-sm text-muted-foreground">Pay when you receive your order</p>
+                        <p className="font-medium">
+                          Cash on{" "}
+                          {deliveryMethod === "delivery"
+                            ? "Delivery"
+                            : "Pickup"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Pay when you receive your order
+                        </p>
                       </Label>
                     </div>
                   </RadioGroup>
@@ -217,7 +275,11 @@ export default function CheckoutPage() {
                     <div className="mt-4 space-y-4">
                       <div>
                         <Label htmlFor="cardNumber">Card Number</Label>
-                        <Input id="cardNumber" placeholder="1234 5678 9012 3456" required />
+                        <Input
+                          id="cardNumber"
+                          placeholder="1234 5678 9012 3456"
+                          required
+                        />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -241,20 +303,71 @@ export default function CheckoutPage() {
                 <CardHeader>
                   <CardTitle>Order Summary</CardTitle>
                   <CardDescription>
-                    {state.items.length} item{state.items.length > 1 ? "s" : ""} in your order
+                    {state.items.length} item{state.items.length > 1 ? "s" : ""}{" "}
+                    in your order
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {state.items.map((item) => (
                     <div key={item.id} className="flex gap-3">
                       <div className="relative h-12 w-12 rounded-md overflow-hidden bg-muted">
-                        <Image src={item.image || "/placeholder.svg"} alt={item.name} fill className="object-cover" />
+                        <Image
+                          src={
+                            item.name === "بيتزا خضار"
+                              ? "/pizza2.jpg"
+                              : item.name === "شاي"
+                              ? "/tea.jpg"
+                              : item.name === "قهوة"
+                              ? "/coffee.jpg"
+                              : item.name === "عصير رمان"
+                              ? "/pomegranate juice.jpg"
+                              : item.name === "عصير جزر"
+                              ? "/juice2.jpg"
+                              : item.name === "بيتزا مخصوص"
+                              ? "/pizza1.jpg"
+                              : item.image || "/placeholder.svg"
+                          }
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-medium text-sm">{item.name}</h4>
-                        <p className="text-xs text-muted-foreground">Qty: {item.quantity}</p>
+                        <h4 className="font-medium text-sm">
+                          {item.name === "بيتزا خضار"
+                            ? "Vegetable Pizza"
+                            : item.name === "شاي"
+                            ? "Tea"
+                            : item.name === "قهوة"
+                            ? "Coffee"
+                            : item.name === "عصير رمان"
+                            ? "Pomegranate Juice"
+                            : item.name === "عصير جزر"
+                            ? "Carrot Juice"
+                            : item.name === "بيتزا مخصوص"
+                            ? "Special Pizza"
+                            : item.name}{" "}
+                          (ID: {item.id})
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          Price: {formatPrice(item.price)}
+                        </p>
+                        {item.discount && item.discount > 0 && (
+                          <p className="text-xs text-muted-foreground">
+                            Discount: {item.discount}%
+                          </p>
+                        )}
+                        <p className="text-xs text-muted-foreground">
+                          Quantity: {item.quantity}
+                        </p>
                       </div>
-                      <p className="font-medium text-sm">{formatPrice(item.price * item.quantity)}</p>
+                      <p className="font-medium text-sm">
+                        {formatPrice(
+                          item.price *
+                            item.quantity *
+                            (1 - (item.discount || 0) / 100)
+                        )}
+                      </p>
                     </div>
                   ))}
 
@@ -285,7 +398,12 @@ export default function CheckoutPage() {
               </Card>
 
               <form onSubmit={handleSubmitOrder}>
-                <Button type="submit" className="w-full dark:text-white cursor-pointer" size="lg" disabled={isProcessing}>
+                <Button
+                  type="submit"
+                  className="w-full dark:text-white cursor-pointer"
+                  size="lg"
+                  disabled={isProcessing}
+                >
                   {isProcessing ? (
                     <>
                       <Clock className="mr-2 h-4 w-4 animate-spin" />
@@ -298,7 +416,9 @@ export default function CheckoutPage() {
               </form>
 
               <div className="text-center text-sm text-muted-foreground">
-                <p>By placing your order, you agree to our terms and conditions.</p>
+                <p>
+                  By placing your order, you agree to our terms and conditions.
+                </p>
               </div>
             </div>
           </div>
@@ -306,5 +426,5 @@ export default function CheckoutPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
