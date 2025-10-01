@@ -46,7 +46,13 @@ export function CategoryFilters({
                   : "bg-transparent text-foreground border-muted hover:bg-foreground/10"
               } capitalize`}
             >
-              {sub === "all" ? "All Items" : sub}
+              {sub === "all"
+                ? "All Items"
+                : sub === "مشروبات باردة"
+                ? "Cold Drinks"
+                : sub === "مشروبات ساخنة"
+                ? "Hot Drinks"
+                : sub}
               {active && (
                 <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-background/20 border border-background/40">
                   <Check className="w-3 h-3" />

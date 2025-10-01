@@ -18,7 +18,7 @@ const slides: SlideData[] = [
     title: "Authentic Chicken Kabsa",
     description:
       "Traditional chicken kabsa prepared with basmati rice and authentic Middle Eastern spices, served with fresh vegetables and aromatic herbs",
-    image: "/traditional-arabic-chicken-kabsa-rice-dish.jpg",
+    image: "/slider1.jpg",
     offer: "20% Off",
   },
   {
@@ -26,7 +26,7 @@ const slides: SlideData[] = [
     title: "Premium Mixed Grill",
     description:
       "A delicious variety of the finest Middle Eastern grilled meats, marinated with special spices and grilled over charcoal",
-    image: "/mixed-arabic-grilled-meat-barbecue-platter.jpg",
+    image: "/slider2.jpg",
     offer: "Special Offer",
   },
   {
@@ -34,7 +34,7 @@ const slides: SlideData[] = [
     title: "Fresh Middle Eastern Desserts",
     description:
       "A selection of the most delicious Middle Eastern desserts prepared daily with the finest ingredients and authentic taste",
-    image: "/traditional-middle-eastern-desserts-baklava-kunafa.jpg",
+    image: "/slider3.jpg",
     offer: "New",
   },
 ];

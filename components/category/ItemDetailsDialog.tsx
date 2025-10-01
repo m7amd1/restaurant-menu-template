@@ -66,6 +66,18 @@ export function ItemDetailsDialog({
                 src={
                   dialogImageError
                     ? "/placeholder.svg"
+                    : item.name === "بيتزا خضار"
+                    ? "/pizza2.jpg"
+                    : item.name === "شاي"
+                    ? "/tea.jpg"
+                    : item.name === "قهوة"
+                    ? "/coffee.jpg"
+                    : item.name === "عصير رمان"
+                    ? "/pomegranate juice.jpg"
+                    : item.name === "عصير جزر"
+                    ? "/juice2.jpg"
+                    : item.name === "بيتزا مخصوص"
+                    ? "/pizza1.jpg"
                     : item.image || "/placeholder.svg"
                 }
                 alt={item.name}
@@ -158,7 +170,11 @@ export function ItemDetailsDialog({
 
             {/* Footer actions */}
             <DialogFooter className="flex items-center sm:justify-between gap-2">
-              <Button variant="outline" onClick={() => onToggleFavorite(item)} className="cursor-pointer">
+              <Button
+                variant="outline"
+                onClick={() => onToggleFavorite(item)}
+                className="cursor-pointer"
+              >
                 <Heart className="h-4 w-4 mr-2" />
                 {isFavorite(item.id.toString())
                   ? "Remove Favorite"

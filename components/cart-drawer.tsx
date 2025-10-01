@@ -74,7 +74,21 @@ export function CartDrawer() {
                       <div key={item.id} className="flex gap-4 py-4">
                         <div className="relative h-16 w-16 rounded-md overflow-hidden bg-muted">
                           <Image
-                            src={item.image || "/placeholder.svg"}
+                            src={
+                              item.name === "بيتزا خضار"
+                                ? "/pizza2.jpg"
+                                : item.name === "شاي"
+                                ? "/tea.jpg"
+                                : item.name === "قهوة"
+                                ? "/coffee.jpg"
+                                : item.name === "عصير رمان"
+                                ? "/pomegranate juice.jpg"
+                                : item.name === "عصير جزر"
+                                ? "/juice2.jpg"
+                                : item.name === "بيتزا مخصوص"
+                                ? "/pizza1.jpg"
+                                : item.image || "/placeholder.svg"
+                            }
                             alt={item.name}
                             fill
                             className="object-cover"

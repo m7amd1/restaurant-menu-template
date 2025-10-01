@@ -29,7 +29,21 @@ export function ItemCard({
       <div className="relative rounded-t-2xl overflow-hidden h-48">
         <Image
           src={
-            imageError ? "/placeholder.svg" : item.image || "/placeholder.svg"
+            imageError
+              ? "/placeholder.svg"
+              : item.name === "بيتزا خضار"
+              ? "/pizza2.jpg"
+              : item.name === "شاي"
+              ? "/tea.jpg"
+              : item.name === "قهوة"
+              ? "/coffee.jpg"
+              : item.name === "عصير رمان"
+              ? "/pomegranate juice.jpg"
+              : item.name === "عصير جزر"
+              ? "/juice2.jpg"
+              : item.name === "بيتزا مخصوص"
+              ? "/pizza1.jpg"
+              : item.image
           }
           alt={item.name}
           fill
@@ -96,7 +110,7 @@ export function ItemCard({
               {item.description}
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
-              {item.tags.map((tag) => (
+              {item.tags?.map((tag) => (
                 <span
                   key={tag}
                   className="px-2 py-0.5 rounded-full border text-xs text-muted-foreground"
